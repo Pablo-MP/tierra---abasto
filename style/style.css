@@ -1,0 +1,247 @@
+/* =========================================
+   1. RESET Y BASE
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Fundamental para evitar desbordamientos */
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6; /* Añadido para que el texto respire mejor */
+}
+
+/* Imágenes responsive: nunca se saldrán de su caja */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* Evita espacios fantasma debajo de la foto */
+}
+
+/* =========================================
+   2. COMPONENTES (Botones)
+   ========================================= */
+.boton-accion {
+  background-color: #6f9b6c; /* Verde tierra */
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 10px;
+  transition: background-color 0.3s ease; /* Suaviza el cambio de color */
+  border: none;
+  cursor: pointer; /* Manita al pasar por encima */
+}
+
+.boton-accion:hover {
+  background-color: rgb(34, 79, 34);
+}
+
+/* =========================================
+   3. HEADER PRINCIPAL
+   ========================================= */
+.logo {
+  border-radius: 45%;
+}
+.principal-header {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column; /* Ponemos logo, H1 y H2 uno debajo del otro */
+  align-items: center; /* Los centramos */
+  padding: 2rem 1rem;
+}
+
+/* Navegación */
+.navigation-page {
+  background-color: #ffffff; /* Obligatorio: si no, al bajar se verán las letras mezcladas con el texto de abajo */
+  padding: 15px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombrita elegante */
+  position: sticky;
+  top: 0; /* Pégate a 0 píxeles del techo de la pantalla */
+  z-index: 1000; /* Asegura que flote por encima de TODO lo demás */
+}
+.navigation-page ul {
+  list-style: none;
+  display: flex; /* Elementos en fila */
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap; /* Por si en móvil no caben, que bajen de línea */
+}
+
+.navigation-page a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.navigation-page a:hover {
+  background-color: #e5ceb7; /* Tu color crema */
+}
+
+/* =========================================
+   4. SECCIÓN HERO
+   ========================================= */
+#hero {
+  /* Usamos padding en lugar de margin para evitar colapsos */
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: #e8f5e9; /* Fondo suave para diferenciar la sección */
+}
+
+#hero h4 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+/* =========================================
+   5. SECCIÓN PROYECTO (Flexbox)
+   ========================================= */
+#elproyecto {
+  padding: 2rem;
+  text-align: center;
+}
+
+#elproyecto h2 {
+  margin: 1rem auto;
+}
+
+.texto {
+  max-width: 800px; /* Evita que las líneas de texto sean eternas e ilegibles */
+  margin: 1rem auto; /* Centra el bloque de texto */
+}
+
+/* FUNDADORES */
+.fundadores {
+  display: flex;
+  justify-content: center; /* Centrados al medio */
+  gap: 2rem; /* Espacio entre ellos */
+  flex-wrap: wrap; /* IMPORTANTE: Si no caben (móvil), bajan de línea */
+  margin-top: 2rem;
+}
+
+.fundador {
+  width: 200px; /* Ancho controlado para cada ficha */
+  text-align: center;
+}
+
+.fundador img {
+  border-radius: 50%; /* Fotos redondas */
+  margin: 0 auto 10px auto; /* Centrar la imagen dentro del div */
+}
+
+/* ROLES (Acordeones) */
+.papel {
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: left; /* El contenido se lee mejor alineado a la izquierda */
+}
+
+.role ul {
+  list-style: disc; /* Ponemos puntitos para que parezca una lista */
+  margin-left: 20px;
+  color: #555;
+}
+
+details {
+  background: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+summary {
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+/* =========================================
+   6. SECCIÓN SCDB (Tu Grid)
+   ========================================= */
+#scdb {
+  display: grid;
+  /* TRUCO PRO: */
+  /* En móvil: 1 columna. En escritorio: 2 columnas */
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #fff;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title-scdb {
+  text-decoration: line-through;
+}
+
+/* MEDIA QUERY: "Si la pantalla es mayor de 768px (Tablets/PC)..." */
+@media (min-width: 768px) {
+  #scdb {
+    grid-template-columns: 1fr 1fr; /* ...activa las 2 columnas */
+    align-items: center; /* Centrado vertical */
+  }
+}
+
+/* Elementos que ocupan todo el ancho */
+#scdb h2,
+#scdb header,
+.formulario-scdb {
+  grid-column: 1 / -1; /* Ocupa desde la línea 1 hasta la última */
+  text-align: center;
+}
+#scdb header h2 {
+  margin: 1rem;
+}
+#scdb header img {
+  margin: 0 auto;
+  border-radius: 30%;
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.5);
+}
+
+.description-scdb {
+  font-size: 1.1rem;
+  padding: 1rem;
+}
+
+.map-scdb {
+  width: 100%;
+  height: 300px; /* Altura fija para el mapa */
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================
+   7. FOOTER
+   ========================================= */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+footer a {
+  color: white;
+  margin: 0 10px;
+}
+
+.legal-links a {
+  color: #aaa; /* Un gris clarito */
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.legal-links a:hover {
+  color: #fff; /* Se iluminan en blanco al pasar el ratón */
+  text-decoration: underline;
+}
